@@ -33,10 +33,7 @@ export function Hero() {
         <Reveal>
           <div className="mx-auto max-w-4xl text-center lg:mx-0 lg:text-left">
             <div className="glass mb-6 inline-flex items-center gap-2 rounded-full px-3 py-2 sm:mb-8 sm:px-4 sm:py-2.5">
-              <span
-                className="h-2 w-2 animate-pulse rounded-full bg-primary"
-                style={{ animation: 'pulse-glow 2s ease-in-out infinite' }}
-              />
+              <span className="pulse-dot h-2 w-2 rounded-full bg-primary" />
               <span className="text-xs font-medium text-muted-foreground sm:text-sm">
                 Academia Premium #1 do Brasil
               </span>
@@ -52,10 +49,10 @@ export function Hero() {
               <span className="text-gradient">Vida.</span>
             </h1>
 
-            <p className="mx-auto mb-8 max-w-xl text-base leading-relaxed text-muted-foreground sm:mb-10 sm:text-lg md:text-xl lg:mx-0">
+            <div className="mx-auto mb-8 max-w-xl text-base leading-relaxed text-muted-foreground sm:mb-10 sm:text-lg md:text-xl lg:mx-0">
               Equipamentos de última geração, personal trainers certificados e um
               ambiente motivador para você alcançar resultados extraordinários.
-            </p>
+            </div>
 
             <div className="flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:gap-4 lg:justify-start">
               <CtaButton href="#planos" size="lg" className="sm:min-w-[220px]">

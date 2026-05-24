@@ -51,10 +51,10 @@ export function Footer() {
                 POWER<span className="text-primary">GYM</span>
               </span>
             </Link>
-            <p className="mb-6 max-w-sm text-sm leading-relaxed text-muted-foreground sm:text-base">
+            <div className="mb-6 max-w-sm text-sm leading-relaxed text-muted-foreground sm:text-base">
               Transformando vidas através do fitness há mais de 15 anos. Nossa
               missão é ajudar você a alcançar seu melhor físico e mental.
-            </p>
+            </div>
             <CtaButton href="#planos" size="sm" className="mb-6 sm:mb-8">
               Começar Agora
             </CtaButton>
@@ -98,7 +98,10 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col items-center justify-between gap-4 border-t border-border pt-8 sm:flex-row">
-          <p className="text-center text-sm text-muted-foreground sm:text-left">
+          <p
+            className="text-center text-sm text-muted-foreground sm:text-left"
+            suppressHydrationWarning
+          >
             © {new Date().getFullYear()} POWER GYM. Todos os direitos reservados.
           </p>
           <button

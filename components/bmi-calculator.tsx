@@ -77,9 +77,9 @@ export function BMICalculator() {
                   <h3 className="font-display text-lg font-bold sm:text-xl">
                     Calculadora de IMC
                   </h3>
-                  <p className="text-sm text-muted-foreground">
+                  <div className="text-sm text-muted-foreground">
                     Descubra seu índice de massa corporal
-                  </p>
+                  </div>
                 </div>
               </div>
 
@@ -166,10 +166,10 @@ export function BMICalculator() {
 
               <div className="mt-6 flex items-start gap-3 rounded-xl border border-primary/20 bg-primary/5 p-4">
                 <Info className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                <p className="text-sm leading-relaxed text-muted-foreground">
+                <div className="text-sm leading-relaxed text-muted-foreground">
                   O IMC é apenas uma referência. Para uma avaliação completa,
                   consulte nossos profissionais de educação física e nutrição.
-                </p>
+                </div>
               </div>
             </div>
           </div>

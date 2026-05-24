@@ -88,9 +88,9 @@ export function Plans() {
 
                 <div className="mb-6 text-center sm:mb-8">
                   <h3 className="font-display text-xl font-bold">{plan.name}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">
+                  <div className="mt-2 text-sm text-muted-foreground">
                     {plan.description}
-                  </p>
+                  </div>
                   <div className="mt-4 flex items-baseline justify-center gap-1">
                     <span className="text-sm text-muted-foreground">R$</span>
                     <span className="font-display text-4xl font-bold text-primary sm:text-5xl">
@@ -128,9 +128,9 @@ export function Plans() {
           ))}
         </div>
 
-        <p className="mt-10 text-center text-sm text-muted-foreground sm:mt-12">
+        <div className="mt-10 text-center text-sm text-muted-foreground sm:mt-12">
           Todos os planos incluem 7 dias de teste grátis. Cancele quando quiser.
-        </p>
+        </div>
       </div>
     </section>
   )

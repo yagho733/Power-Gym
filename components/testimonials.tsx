@@ -57,9 +57,9 @@ function TestimonialCard({
           <Star key={i} className="h-4 w-4 fill-primary text-primary" />
         ))}
       </div>
-      <p className="mb-6 flex-grow text-sm leading-relaxed text-muted-foreground">
+      <div className="mb-6 flex-grow text-sm leading-relaxed text-muted-foreground">
         {testimonial.text}
-      </p>
+      </div>
       <div className="flex items-center gap-3 border-t border-border pt-4">
         <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full">
           <Image

@@ -93,9 +93,9 @@ export function Trainers() {
                   <p className="mt-1 text-sm font-medium text-primary">
                     {trainer.role}
                   </p>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  <div className="mt-3 text-sm leading-relaxed text-muted-foreground">
                     {trainer.bio}
-                  </p>
+                  </div>
                 </div>
               </article>
             </Reveal>

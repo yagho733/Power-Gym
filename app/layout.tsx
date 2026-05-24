@@ -60,9 +60,14 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR" className="bg-background scroll-smooth">
+    <html
+      lang="pt-BR"
+      className="bg-background scroll-smooth"
+      suppressHydrationWarning
+    >
       <body
         className={`${inter.variable} ${oswald.variable} font-sans antialiased`}
+        suppressHydrationWarning
       >
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}

@@ -35,9 +35,9 @@ export function SectionHeader({
           </>
         )}
       </h2>
-      <p className="text-muted-foreground text-base leading-relaxed sm:text-lg">
+      <div className="text-muted-foreground text-base leading-relaxed sm:text-lg">
         {description}
-      </p>
+      </div>
     </div>
   )
 }

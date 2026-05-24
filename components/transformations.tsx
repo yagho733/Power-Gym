@@ -114,9 +114,9 @@ export function Transformations() {
                     {current.name}
                   </h3>
                   <p className="mt-1 text-muted-foreground">{current.age} anos</p>
-                  <blockquote className="mt-4 text-base italic leading-relaxed text-muted-foreground sm:mt-6 sm:text-lg">
+                  <p className="mt-4 text-base italic leading-relaxed text-muted-foreground sm:mt-6 sm:text-lg">
                     &ldquo;{current.testimony}&rdquo;
-                  </blockquote>
+                  </p>
 
                   <div className="mt-6 flex items-center justify-center gap-3 sm:mt-8 md:justify-start">
                     <button

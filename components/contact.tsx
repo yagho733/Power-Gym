@@ -136,9 +136,9 @@ export function Contact() {
                   <h4 className="font-display mb-2 text-xl font-bold">
                     Mensagem Enviada!
                   </h4>
-                  <p className="text-muted-foreground">
+                  <div className="text-muted-foreground">
                     Obrigado pelo contato. Retornaremos em breve!
-                  </p>
+                  </div>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
