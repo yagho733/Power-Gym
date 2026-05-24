@@ -10,10 +10,7 @@ param(
 $ErrorActionPreference = "Stop"
 $git = "$env:USERPROFILE\MinGit\cmd\git.exe"
 $gh = "$env:USERPROFILE\gh-cli\gh.exe"
-$proj = Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
-if (Test-Path "$PSScriptRoot\..\package.json") {
-    $proj = Resolve-Path "$PSScriptRoot\.."
-}
+$proj = (Resolve-Path "$PSScriptRoot\..").Path
 
 if (-not (Test-Path $git)) {
     Write-Error "Git portátil não encontrado em $git. Execute a instalação ou instale Git for Windows."
