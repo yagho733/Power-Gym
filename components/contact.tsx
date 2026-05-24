@@ -117,7 +117,7 @@ export function Contact() {
             <div className="relative h-56 overflow-hidden rounded-3xl border border-zinc-800/60 bg-zinc-900/10 backdrop-blur-xl sm:h-64 shadow-2xl group">
               <div className="absolute inset-0 bg-zinc-950/20 mix-blend-color transition-opacity duration-500 group-hover:opacity-0 pointer-events-none z-10" />
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m2!1m3!1d1!2d0!3d0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5m2!1spt-BR!2sbr"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1456125020993!2d-46.65431602377281!3d-23.56321036134375!2m3!1f0!2f0!3f0!3m2!1i1020!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0605bb%3A0x2a286a6357dd097!2sAv.%20Paulista%2C%201000%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001310-100!5e0!3m2!1spt-BR!2sbr!4v1716570000000!5m2!1spt-BR!2sbr"
                 width="100%"
                 height="100%"
                 style={{ border: 0, filter: 'grayscale(1) invert(0.92) contrast(1.1)' }}
