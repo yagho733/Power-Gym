@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { ChevronRight, Play } from 'lucide-react'
+import { ChevronRight, Play, Trophy, Users, Calendar } from 'lucide-react'
 import { CtaButton } from '@/components/cta-button'
 import { Reveal } from '@/components/reveal'
 
@@ -11,94 +11,124 @@ export function Hero() {
   return (
     <section
       id="inicio"
-      className="relative flex min-h-[100dvh] items-center justify-center overflow-hidden"
+      className="relative flex min-h-[100dvh] items-center justify-center overflow-hidden bg-zinc-950 select-none"
     >
-      <div className="absolute inset-0">
+      {/* BACKGROUND COM FILTROS DE LUZ PREMIUN */}
+      <div className="absolute inset-0 z-0">
         <Image
           src={HERO_IMAGE}
           alt="Academia POWER GYM com equipamentos premium"
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center"
+          className="object-cover object-center brightness-[0.3] contrast-[1.05]"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/92 to-background/75" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
-        <div className="absolute inset-0 grid-overlay opacity-40" />
+        {/* Gradientes de Fusão de Cores */}
+        <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/90 to-transparent lg:from-zinc-950 lg:via-zinc-950/85 lg:to-zinc-950/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent" />
+        
+        {/* Efeitos de Iluminação Futurista (Glow) */}
+        <div className="absolute -top-[20%] -left-[10%] h-[600px] w-[600px] rounded-full bg-primary/10 blur-[150px]" />
+        <div className="absolute bottom-[10%] right-[5%] h-[400px] w-[400px] rounded-full bg-orange-600/10 blur-[130px]" />
+        
+        {/* Overlay sutil de Grid */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-zinc-950/20 to-zinc-950 opacity-60 grid-overlay" />
       </div>
 
-      <div className="mesh-bg" aria-hidden />
-
-      <div className="relative z-10 container-tight pt-24 pb-16 sm:pt-28 sm:pb-20 md:pt-32 md:pb-24">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16 sm:pt-32 sm:pb-20 md:pt-40 md:pb-28">
         <Reveal>
           <div className="mx-auto max-w-4xl text-center lg:mx-0 lg:text-left">
-            <div className="glass mb-6 inline-flex items-center gap-2 rounded-full px-3 py-2 sm:mb-8 sm:px-4 sm:py-2.5">
-              <span className="pulse-dot h-2 w-2 rounded-full bg-primary" />
-              <span className="text-xs font-medium text-muted-foreground sm:text-sm">
-                Academia Premium #1 do Brasil
+            
+            {/* Tag Badge com Glassmorphism Avançado */}
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-zinc-700/30 bg-zinc-900/40 px-4 py-2 backdrop-blur-md shadow-2xl transition-all duration-300 hover:border-primary/30 sm:mb-8">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+              </span>
+              <span className="text-xs font-bold tracking-wide uppercase bg-gradient-to-r from-zinc-200 to-zinc-400 bg-clip-text text-transparent sm:text-sm">
+                Experiência Fitness Premium #1
               </span>
             </div>
 
-            <h1 className="font-display mb-5 text-[2rem] font-bold leading-[1.1] tracking-tight sm:mb-6 sm:text-5xl md:text-6xl lg:text-7xl">
-              <span className="text-foreground">Supere seus</span>
-              <br />
-              <span className="text-gradient">Limites.</span>
-              <br />
-              <span className="text-foreground">Transforme sua</span>
-              <br />
-              <span className="text-gradient">Vida.</span>
+            {/* Tipografia Impactante de Startup */}
+            <h1 className="font-display mb-6 text-[2.5rem] font-black leading-[1.05] tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl">
+              SUPERE SEUS <br className="hidden sm:inline" />
+              <span className="relative inline-block mt-1">
+                <span className="absolute -inset-1 rounded-lg bg-gradient-to-r from-primary to-orange-600 opacity-20 blur-md" />
+                <span className="relative bg-gradient-to-r from-primary via-orange-500 to-amber-400 bg-clip-text font-black text-transparent">
+                  LIMITES.
+                </span>
+              </span>
             </h1>
 
-            <div className="mx-auto mb-8 max-w-xl text-base leading-relaxed text-muted-foreground sm:mb-10 sm:text-lg md:text-xl lg:mx-0">
-              Equipamentos de última geração, personal trainers certificados e um
-              ambiente motivador para você alcançar resultados extraordinários.
+            {/* Descrição Alinhada com UX Aprimorada */}
+            <div className="mx-auto mb-10 max-w-xl text-base leading-relaxed text-zinc-400 font-normal sm:mb-12 sm:text-lg md:text-xl lg:mx-0 lg:max-w-2xl">
+              Treine em uma infraestrutura de elite projetada para alta performance. Equipamentos bio-mecânicos avançados, treinadores campeões e um ecossistema focado no seu resultado extraordinário.
             </div>
 
-            <div className="flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:gap-4 lg:justify-start">
-              <CtaButton href="#planos" size="lg" className="sm:min-w-[220px]">
-                Matricule-se Agora
-                <ChevronRight className="h-5 w-5" />
+            {/* CTAs Interativos com Efeitos Hover Modernos */}
+            <div className="flex flex-col items-stretch justify-center gap-4 sm:flex-row sm:items-center lg:justify-start">
+              <CtaButton 
+                href="#planos" 
+                size="lg" 
+                className="group relative overflow-hidden bg-gradient-to-r from-primary to-orange-600 px-8 py-4 text-sm font-extrabold uppercase tracking-wider text-white shadow-xl shadow-primary/20 transition-all duration-300 hover:scale-[1.03] hover:shadow-primary/40 sm:w-auto"
+              >
+                <span className="relative z-10 flex items-center justify-center gap-2">
+                  Começar Jornada de Elite
+                  <ChevronRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+                </span>
               </CtaButton>
+              
               <Link
                 href="#equipe"
-                className="group flex w-full items-center justify-center gap-3 rounded-xl border border-border/80 bg-background/20 px-6 py-4 backdrop-blur-sm transition-all duration-300 hover:border-primary/40 hover:bg-primary/5 sm:w-auto"
+                className="group flex items-center justify-center gap-3 rounded-xl border border-zinc-800 bg-zinc-900/20 px-8 py-4 backdrop-blur-md transition-all duration-300 hover:border-zinc-700 hover:bg-zinc-900/60"
               >
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/15 transition-colors group-hover:bg-primary/25">
-                  <Play className="h-4 w-4 fill-primary text-primary" />
+                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-zinc-900/80 border border-zinc-800 transition-all duration-300 group-hover:scale-110 group-hover:border-primary/40 group-hover:bg-primary/10">
+                  <Play className="h-4 w-4 fill-primary text-primary transition-transform duration-300 group-hover:scale-95" />
                 </div>
-                <span className="font-medium">Conheça a Academia</span>
+                <span className="text-sm font-bold tracking-wide text-zinc-300 transition-colors group-hover:text-white">
+                  Tour Pela Academia
+                </span>
               </Link>
             </div>
 
-            <div className="mx-auto mt-12 grid max-w-md grid-cols-3 gap-4 border-t border-border/40 pt-8 sm:mt-14 sm:gap-6 sm:pt-10 lg:mx-0 lg:max-w-xl">
+            {/* Seção de Estatísticas Premium com Mini-Ícones */}
+            <div className="mx-auto mt-14 grid max-w-lg grid-cols-3 gap-4 border-t border-zinc-800/60 pt-8 sm:mt-16 sm:gap-8 sm:pt-10 lg:mx-0 lg:max-w-2xl">
               {[
-                { value: '5000+', label: 'Alunos Ativos' },
-                { value: '15+', label: 'Anos de Mercado' },
-                { value: '98%', label: 'Satisfação' },
-              ].map((stat) => (
-                <div key={stat.label} className="text-center lg:text-left">
-                  <div className="font-display text-2xl font-bold tabular-nums text-primary sm:text-3xl md:text-4xl">
-                    {stat.value}
+                { value: '5000+', label: 'Atletas Ativos', icon: Users },
+                { value: '15+', label: 'Anos de Elite', icon: Calendar },
+                { value: '98%', label: 'Satisfação', icon: Trophy },
+              ].map((stat) => {
+                const Icon = stat.icon
+                return (
+                  <div key={stat.label} className="text-center lg:text-left group">
+                    <div className="flex flex-col lg:flex-row lg:items-center lg:gap-2 justify-center lg:justify-start mb-1">
+                      <Icon className="h-4 w-4 text-zinc-500 mx-auto lg:mx-0 transition-colors duration-300 group-hover:text-primary" />
+                      <div className="font-display text-2xl font-black tabular-nums text-white sm:text-3xl md:text-4xl">
+                        {stat.value}
+                      </div>
+                    </div>
+                    <div className="text-[11px] font-medium tracking-wide uppercase text-zinc-500 sm:text-xs">
+                      {stat.label}
+                    </div>
                   </div>
-                  <div className="mt-1 text-xs text-muted-foreground sm:text-sm">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
+                )
+              })}
             </div>
           </div>
         </Reveal>
       </div>
 
+      {/* Indicador de Scroll Clean e Minimalista */}
       <div
-        className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 sm:flex"
+        className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 sm:flex"
         aria-hidden
       >
-        <span className="text-[10px] uppercase tracking-widest text-muted-foreground">
-          Role para baixo
+        <span className="text-[9px] font-bold uppercase tracking-[0.25em] text-zinc-500">
+          Descubra Mais
         </span>
-        <div className="flex h-9 w-5 items-start justify-center rounded-full border border-muted-foreground/25 pt-1.5">
-          <div className="h-2 w-0.5 animate-bounce rounded-full bg-primary" />
+        <div className="flex h-10 w-6 items-start justify-center rounded-full border border-zinc-800 bg-zinc-950/50 p-1.5 backdrop-blur-sm">
+          <div className="h-2 w-1 animate-bounce rounded-full bg-primary" />
         </div>
       </div>
     </section>
