@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { ChevronRight, Play, Trophy, Users, Calendar } from 'lucide-react'
+import { ChevronRight, Play, Clock3, Users, MessageCircle } from 'lucide-react'
 import { CtaButton } from '@/components/cta-button'
 import { Reveal } from '@/components/reveal'
 
@@ -46,24 +46,24 @@ export function Hero() {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
               </span>
               <span className="text-xs font-bold tracking-wide uppercase bg-gradient-to-r from-zinc-200 to-zinc-400 bg-clip-text text-transparent sm:text-sm">
-                Experiência Fitness Premium #1
+                Modelo demonstrativo para academias
               </span>
             </div>
 
             {/* Tipografia Impactante de Startup */}
             <h1 className="font-display mb-6 text-[2.5rem] font-black leading-[1.05] tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl">
-              SUPERE SEUS <br className="hidden sm:inline" />
+              TREINE DO SEU <br className="hidden sm:inline" />
               <span className="relative inline-block mt-1">
                 <span className="absolute -inset-1 rounded-lg bg-gradient-to-r from-primary to-orange-600 opacity-20 blur-md" />
                 <span className="relative bg-gradient-to-r from-primary via-orange-500 to-amber-400 bg-clip-text font-black text-transparent">
-                  LIMITES.
+                  JEITO.
                 </span>
               </span>
             </h1>
 
             {/* Descrição Alinhada com UX Aprimorada */}
             <div className="mx-auto mb-10 max-w-xl text-base leading-relaxed text-zinc-400 font-normal sm:mb-12 sm:text-lg md:text-xl lg:mx-0 lg:max-w-2xl">
-              Treine em uma infraestrutura de elite projetada para alta performance. Equipamentos bio-mecânicos avançados, treinadores campeões e um ecossistema focado no seu resultado extraordinário.
+              Uma academia completa, com orientação próxima e uma rotina de treino que cabe na sua vida. Venha conhecer o espaço e conversar com a equipe.
             </div>
 
             {/* CTAs Interativos com Efeitos Hover Modernos */}
@@ -74,20 +74,20 @@ export function Hero() {
                 className="group relative overflow-hidden bg-gradient-to-r from-primary to-orange-600 px-8 py-4 text-sm font-extrabold uppercase tracking-wider text-white shadow-xl shadow-primary/20 transition-all duration-300 hover:scale-[1.03] hover:shadow-primary/40 sm:w-auto"
               >
                 <span className="relative z-10 flex items-center justify-center gap-2">
-                  Começar Jornada de Elite
+                  Ver planos e horários
                   <ChevronRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
                 </span>
               </CtaButton>
               
               <Link
-                href="#equipe"
+                href="#estrutura"
                 className="group flex items-center justify-center gap-3 rounded-xl border border-zinc-800 bg-zinc-900/20 px-8 py-4 backdrop-blur-md transition-all duration-300 hover:border-zinc-700 hover:bg-zinc-900/60"
               >
                 <div className="flex h-11 w-11 items-center justify-center rounded-full bg-zinc-900/80 border border-zinc-800 transition-all duration-300 group-hover:scale-110 group-hover:border-primary/40 group-hover:bg-primary/10">
                   <Play className="h-4 w-4 fill-primary text-primary transition-transform duration-300 group-hover:scale-95" />
                 </div>
                 <span className="text-sm font-bold tracking-wide text-zinc-300 transition-colors group-hover:text-white">
-                  Tour Pela Academia
+                  Conhecer a estrutura
                 </span>
               </Link>
             </div>
@@ -95,9 +95,9 @@ export function Hero() {
             {/* Seção de Estatísticas Premium com Mini-Ícones */}
             <div className="mx-auto mt-14 grid max-w-lg grid-cols-3 gap-4 border-t border-zinc-800/60 pt-8 sm:mt-16 sm:gap-8 sm:pt-10 lg:mx-0 lg:max-w-2xl">
               {[
-                { value: '5000+', label: 'Atletas Ativos', icon: Users },
-                { value: '15+', label: 'Anos de Elite', icon: Calendar },
-                { value: '98%', label: 'Satisfação', icon: Trophy },
+                { value: 'Flexível', label: 'Horários de treino', icon: Clock3 },
+                { value: 'Próximo', label: 'Acompanhamento', icon: Users },
+                { value: 'Direto', label: 'Contato no WhatsApp', icon: MessageCircle },
               ].map((stat) => {
                 const Icon = stat.icon
                 return (

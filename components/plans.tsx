@@ -8,51 +8,48 @@ const plans = [
     name: 'Básico',
     price: '89',
     period: '/mês',
-    description: 'Ideal para quem está a começar',
+    description: 'Para começar com flexibilidade',
     icon: Zap,
     features: [
       'Acesso à musculação',
-      'Balneários completos',
-      'Cofre individual',
-      'App de treinos guiados',
+      'Área de cardio',
+      'Avaliação física inicial',
+      'Treino de adaptação',
     ],
     popular: false,
-    cta: 'Começar Agora',
+    cta: 'Tenho interesse',
   },
   {
     name: 'Premium',
     price: '149',
     period: '/mês',
-    description: 'O nosso plano mais popular',
+    description: 'Mais opções para a sua rotina',
     icon: Star,
     features: [
       'Tudo do plano Básico',
       'Aulas coletivas ilimitadas',
-      'Área de cardio de última geração',
-      '1 avaliação física avançada/mês',
-      'Acesso livre 24 horas',
-      'Estacionamento privado gratuito',
+      'Renovação periódica do treino',
+      'Avaliação física trimestral',
+      'Horários ampliados',
     ],
     popular: true,
-    cta: 'Garantir Acesso Premium',
+    cta: 'Conhecer o plano',
   },
   {
-    name: 'Elite',
-    price: '249',
+    name: 'Acompanhado',
+    price: '189',
     period: '/mês',
-    description: 'Experiência máxima e exclusiva',
+    description: 'Para quem quer orientação mais próxima',
     icon: Crown,
     features: [
       'Tudo do plano Premium',
-      'Acompanhamento de Personal Trainer',
-      'Consulta de Nutrição incluída',
-      'Acesso ao Spa & Sauna',
-      'Suplementação básica no clube',
-      'Serviço de toalhas incluído',
-      'Lounges VIP e área exclusiva',
+      'Encontros com personal trainer',
+      'Ajustes individuais de treino',
+      'Acompanhamento de evolução',
+      'Prioridade nos horários agendados',
     ],
     popular: false,
-    cta: 'Tornar-me Elite',
+    cta: 'Falar com a equipe',
   },
 ]
 
@@ -67,8 +64,8 @@ export function Plans() {
           <SectionHeader
             badge="Nossos Planos"
             title="Escolha o plano"
-            highlight="ideal para si"
-            description="Planos flexíveis ajustados aos seus objetivos de alta performance. Sem taxas ocultas."
+            highlight="que combina com você"
+            description="Opções simples para diferentes rotinas. Os valores abaixo são ilustrativos e podem ser personalizados para cada academia."
           />
         </Reveal>
 
@@ -166,7 +163,7 @@ export function Plans() {
 
         {/* Rodapé da secção */}
         <p className="mt-12 text-center text-xs font-medium tracking-wide text-zinc-500 sm:mt-16">
-          🛡️ Todos os planos incluem 7 dias de garantia de satisfação ou o seu dinheiro de volta. Cancele online a qualquer momento.
+          Valores e benefícios demonstrativos. Na versão final, esta seção recebe os planos reais da academia.
         </p>
       </div>
     </section>

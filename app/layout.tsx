@@ -17,10 +17,9 @@ const oswald = Oswald({
 })
 
 export const metadata: Metadata = {
-  title: 'POWER GYM | Academia de Elite',
+  title: 'POWER GYM | Modelo de site para academias',
   description:
-    'Transforme seu corpo e sua vida na POWER GYM. Academia premium com equipamentos de última geração, personal trainers certificados e resultados garantidos.',
-  generator: 'v0.app',
+    'Modelo demonstrativo de site para academias, com planos, estrutura, calculadora de IMC e contato pelo WhatsApp.',
   keywords: [
     'academia',
     'fitness',

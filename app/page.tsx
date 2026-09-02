@@ -2,7 +2,6 @@ import { Header } from '@/components/header'
 import { Hero } from '@/components/hero'
 import { Plans } from '@/components/plans'
 import { Trainers } from '@/components/trainers'
-import { Transformations } from '@/components/transformations'
 import { Testimonials } from '@/components/testimonials'
 import { BMICalculator } from '@/components/bmi-calculator'
 import { Contact } from '@/components/contact'
@@ -18,7 +17,6 @@ export default function Home() {
       <Hero />
       <Plans />
       <Trainers />
-      <Transformations />
       <Testimonials />
       <BMICalculator />
       <Contact />

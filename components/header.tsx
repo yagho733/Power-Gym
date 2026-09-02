@@ -9,9 +9,8 @@ import { CtaButton } from '@/components/cta-button'
 const navLinks = [
   { href: '#inicio', label: 'Início' },
   { href: '#planos', label: 'Planos' },
-  { href: '#equipe', label: 'Equipe' },
-  { href: '#transformacoes', label: 'Transformações' },
-  { href: '#depoimentos', label: 'Depoimentos' },
+  { href: '#estrutura', label: 'Estrutura' },
+  { href: '#diferenciais', label: 'Diferenciais' },
   { href: '#imc', label: 'IMC' },
   { href: '#contato', label: 'Contato' },
 ]
@@ -69,8 +68,8 @@ export function Header() {
           </nav>
 
           <div className="hidden lg:block">
-            <CtaButton href="#planos" size="sm">
-              Matricule-se Agora
+            <CtaButton href="#contato" size="sm">
+              Agendar uma aula
             </CtaButton>
           </div>
 
@@ -108,12 +107,12 @@ export function Header() {
             </Link>
           ))}
           <CtaButton
-            href="#planos"
+            href="#contato"
             fullWidth
             className="mt-3"
             onClick={() => setIsMenuOpen(false)}
           >
-            Matricule-se Agora
+            Agendar uma aula
           </CtaButton>
         </nav>
       </div>

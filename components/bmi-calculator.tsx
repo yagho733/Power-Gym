@@ -62,7 +62,7 @@ export function BMICalculator() {
             badge="Calculadora"
             title="Calcule seu"
             highlight="IMC"
-            description="O Índice de Massa Corporal (IMC) é uma medida internacional usada para calcular se uma pessoa está no peso ideal."
+            description="O Índice de Massa Corporal (IMC) relaciona peso e altura e pode servir como uma referência inicial."
           />
         </Reveal>
 
@@ -167,8 +167,8 @@ export function BMICalculator() {
               <div className="mt-6 flex items-start gap-3 rounded-xl border border-primary/20 bg-primary/5 p-4">
                 <Info className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                 <div className="text-sm leading-relaxed text-muted-foreground">
-                  O IMC é apenas uma referência. Para uma avaliação completa,
-                  consulte nossos profissionais de educação física e nutrição.
+                  O IMC não substitui uma avaliação individual. Para orientações
+                  sobre treino e saúde, procure profissionais qualificados.
                 </div>
               </div>
             </div>
