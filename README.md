@@ -1,6 +1,20 @@
 # Power Gym
 
-Modelo demonstrativo de site comercial para academias. A página apresenta planos, estrutura, diferenciais, calculadora de IMC e uma experiência de contato pelo WhatsApp.
+Site comercial demonstrativo para academias, desenvolvido com foco em apresentação de planos, estrutura, conversão e experiência responsiva.
+
+## Projeto online
+
+https://power-gym-two.vercel.app
+
+## Principais recursos
+
+- Hero e identidade visual voltados para o segmento fitness
+- Apresentação de planos e diferenciais
+- Seções de estrutura e serviços
+- Calculadora de IMC
+- Chamada para contato pelo WhatsApp
+- Layout responsivo para desktop e mobile
+- Estrutura pronta para adaptação à identidade de uma academia real
 
 ## Tecnologias
 
@@ -9,20 +23,17 @@ Modelo demonstrativo de site comercial para academias. A página apresenta plano
 - TypeScript
 - Tailwind CSS
 
-## Getting Started
-
-First, run the development server:
+## Rodar localmente
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Objetivo
 
-Os textos, valores e dados de contato são ilustrativos e devem ser substituídos pelas informações reais do cliente antes da publicação.
+Projeto criado para demonstrar uma solução comercial moderna para academias que precisam apresentar melhor seus serviços, planos e diferenciais online.
+
+Os textos, valores e dados utilizados são demonstrativos e devem ser substituídos pelas informações oficiais do cliente antes da publicação comercial.
