@@ -1,10 +1,12 @@
-# Power Gym
+# Power Gym — Academia & Performance
 
-Site comercial demonstrativo para academias, desenvolvido com foco em apresentação de planos, estrutura, conversão e experiência responsiva.
+Site comercial demonstrativo para academia, com foco em apresentação de planos, estrutura, diferenciais e conversão para contato.
 
-## Projeto online
+**Demo:** https://power-gym-two.vercel.app
 
-https://power-gym-two.vercel.app
+## Sobre o projeto
+
+O Power Gym foi criado para demonstrar uma presença digital moderna para academias que precisam apresentar melhor seus serviços, planos e estrutura em uma experiência responsiva e objetiva.
 
 ## Principais recursos
 
@@ -12,18 +14,23 @@ https://power-gym-two.vercel.app
 - Apresentação de planos e diferenciais
 - Seções de estrutura e serviços
 - Calculadora de IMC
-- Chamada para contato pelo WhatsApp
+- Chamadas para contato pelo WhatsApp
+- Componentes interativos de interface
 - Layout responsivo para desktop e mobile
-- Estrutura pronta para adaptação à identidade de uma academia real
+- Estrutura pronta para adaptação a uma academia real
 
 ## Tecnologias
 
-- Next.js
-- React
+- Next.js 16
+- React 19
 - TypeScript
-- Tailwind CSS
+- Tailwind CSS 4
+- Radix UI
+- React Hook Form
+- Zod
+- Vercel Analytics
 
-## Rodar localmente
+## Executar localmente
 
 ```bash
 npm install
@@ -32,8 +39,10 @@ npm run dev
 
 Abra `http://localhost:3000`.
 
-## Objetivo
+## Observação
 
-Projeto criado para demonstrar uma solução comercial moderna para academias que precisam apresentar melhor seus serviços, planos e diferenciais online.
+Projeto demonstrativo de portfólio. Textos, planos, valores, contatos e demais informações devem ser substituídos pelos dados oficiais antes de uma publicação comercial real.
 
-Os textos, valores e dados utilizados são demonstrativos e devem ser substituídos pelas informações oficiais do cliente antes da publicação comercial.
+## Autor
+
+Desenvolvido por Yagho Rosa — Desenvolvedor Web.
