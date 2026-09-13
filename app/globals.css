@@ -52,6 +52,14 @@
 .input-editorial:focus { border-color: var(--accent); }
 .input-editorial::placeholder { color: #7c786f; }
 
+.photo-tone,
+#inicio img,
+#estrutura img,
+#experiencia img,
+#contato img {
+  filter: saturate(.8) contrast(1.06) brightness(.95);
+}
+
 .marquee { overflow: hidden; white-space: nowrap; }
 .marquee-track { display: inline-flex; min-width: max-content; animation: marquee 24s linear infinite; }
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
@@ -63,6 +71,8 @@
 
 @media (max-width: 640px) {
   section[id] { scroll-margin-top: 72px; }
+  .container-site { width: min(100% - 32px, 1440px); }
+  .display-tight { letter-spacing: -0.035em; }
   .orange-link, .ghost-link { width: 100%; }
 }
 
