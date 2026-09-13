@@ -8,6 +8,10 @@ const plans = [
     name: 'Essencial',
     price: '89',
     description: 'Para quem quer musculação e cardio com liberdade de horário.',
+    bestFor: 'Rotina simples',
+    collective: '—',
+    review: 'Inicial',
+    support: 'Padrão',
     features: ['Musculação', 'Área de cardio', 'Avaliação inicial', 'Treino de adaptação'],
     featured: false,
   },
@@ -16,6 +20,10 @@ const plans = [
     name: 'Performance',
     price: '149',
     description: 'Mais variedade para quem quer construir uma rotina completa.',
+    bestFor: 'Mais variedade',
+    collective: 'Ilimitadas',
+    review: 'Periódica',
+    support: 'Ampliado',
     features: ['Tudo do Essencial', 'Aulas coletivas', 'Renovação de treino', 'Avaliação periódica', 'Horários ampliados'],
     featured: true,
   },
@@ -24,6 +32,10 @@ const plans = [
     name: 'Acompanhado',
     price: '189',
     description: 'Mais proximidade para quem prefere ajustes frequentes e orientação individual.',
+    bestFor: 'Mais orientação',
+    collective: 'Ilimitadas',
+    review: 'Frequente',
+    support: 'Próximo',
     features: ['Tudo do Performance', 'Encontros de acompanhamento', 'Ajustes individuais', 'Leitura de evolução', 'Prioridade em agendamentos'],
     featured: false,
   },
@@ -45,7 +57,7 @@ export function Plans() {
                 A gente sustenta.
               </h2>
               <p className="max-w-md text-sm leading-7 text-black/58 sm:text-base">
-                Três formatos claros, sem letras miúdas. Os valores são demonstrativos e podem ser ajustados para a operação real da academia.
+                Três níveis de acesso, com diferenças objetivas de acompanhamento e variedade. Compare primeiro; escolha depois.
               </p>
             </div>
           </div>
@@ -54,7 +66,7 @@ export function Plans() {
         <div className="mt-14 grid border-t border-l border-black/20 lg:grid-cols-3">
           {plans.map((plan, index) => (
             <Reveal key={plan.name} delay={index * 70}>
-              <article className={`relative flex h-full min-h-[570px] flex-col border-r border-b border-black/20 p-6 sm:p-8 ${plan.featured ? 'bg-[#0a0a09] text-[#f1eee7]' : 'bg-transparent'}`}>
+              <article className={`relative flex h-full min-h-[610px] flex-col border-r border-b border-black/20 p-6 sm:p-8 ${plan.featured ? 'bg-[#0a0a09] text-[#f1eee7]' : 'bg-transparent'}`}>
                 {plan.featured && (
                   <span className="absolute right-0 top-0 bg-[#f05a28] px-4 py-2 text-[9px] font-extrabold uppercase tracking-[0.16em] text-[#0a0a09]">
                     Mais escolhido
@@ -62,19 +74,13 @@ export function Plans() {
                 )}
 
                 <div className="flex items-start justify-between gap-6">
-                  <span className={`text-[10px] font-bold tracking-[0.18em] ${plan.featured ? 'text-white/40' : 'text-black/42'}`}>
-                    {plan.index}
-                  </span>
-                  <span className={`text-[9px] font-bold uppercase tracking-[0.16em] ${plan.featured ? 'text-[#f05a28]' : 'text-[#c74418]'}`}>
-                    Mensal
-                  </span>
+                  <span className={`text-[10px] font-bold tracking-[0.18em] ${plan.featured ? 'text-white/40' : 'text-black/42'}`}>{plan.index}</span>
+                  <span className={`text-[9px] font-bold uppercase tracking-[0.16em] ${plan.featured ? 'text-[#f05a28]' : 'text-[#c74418]'}`}>Mensal</span>
                 </div>
 
                 <div className="mt-14">
                   <h3 className="display-tight text-4xl font-medium sm:text-5xl">{plan.name}</h3>
-                  <p className={`mt-4 min-h-[72px] max-w-sm text-sm leading-6 ${plan.featured ? 'text-white/55' : 'text-black/55'}`}>
-                    {plan.description}
-                  </p>
+                  <p className={`mt-4 min-h-[72px] max-w-sm text-sm leading-6 ${plan.featured ? 'text-white/55' : 'text-black/55'}`}>{plan.description}</p>
                 </div>
 
                 <div className={`mt-8 border-y py-6 ${plan.featured ? 'border-white/15' : 'border-black/20'}`}>
@@ -85,7 +91,21 @@ export function Plans() {
                   </div>
                 </div>
 
-                <ul className="mt-7 space-y-3.5">
+                <dl className={`mt-6 grid grid-cols-2 border-y ${plan.featured ? 'border-white/15' : 'border-black/20'}`}>
+                  {[
+                    ['Perfil', plan.bestFor],
+                    ['Coletivas', plan.collective],
+                    ['Avaliação', plan.review],
+                    ['Suporte', plan.support],
+                  ].map(([label, value], itemIndex) => (
+                    <div key={label} className={`py-4 ${itemIndex % 2 === 0 ? 'pr-4' : 'border-l pl-4'} ${plan.featured ? 'border-white/15' : 'border-black/20'}`}>
+                      <dt className={`text-[8px] font-bold uppercase tracking-[0.15em] ${plan.featured ? 'text-white/35' : 'text-black/38'}`}>{label}</dt>
+                      <dd className={`mt-1 text-xs font-semibold ${plan.featured ? 'text-white/75' : 'text-black/68'}`}>{value}</dd>
+                    </div>
+                  ))}
+                </dl>
+
+                <ul className="mt-6 space-y-3.5">
                   {plan.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-3 text-sm">
                       <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#f05a28]" />
@@ -94,21 +114,14 @@ export function Plans() {
                   ))}
                 </ul>
 
-                <Link
-                  href="#contato"
-                  className={`mt-auto flex items-center justify-between border-t pt-5 text-[11px] font-extrabold uppercase tracking-[0.14em] transition-colors ${plan.featured ? 'border-white/15 text-white hover:text-[#f05a28]' : 'border-black/20 text-black hover:text-[#c74418]'}`}
-                >
+                <Link href="#contato" className={`mt-auto flex items-center justify-between border-t pt-5 text-[11px] font-extrabold uppercase tracking-[0.14em] transition-colors ${plan.featured ? 'border-white/15 text-white hover:text-[#f05a28]' : 'border-black/20 text-black hover:text-[#c74418]'}`}>
                   Quero este plano
-                  <ArrowUpRight className="h-4 w-4" />
+                  <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
                 </Link>
               </article>
             </Reveal>
           ))}
         </div>
-
-        <p className="mt-5 text-[10px] uppercase tracking-[0.13em] text-black/45">
-          Valores demonstrativos para apresentação do projeto.
-        </p>
       </div>
     </section>
   )
