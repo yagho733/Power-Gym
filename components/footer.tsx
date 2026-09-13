@@ -1,57 +1,36 @@
 'use client'
 
 import Link from 'next/link'
-import { ArrowUp, Dumbbell } from 'lucide-react'
-import { CtaButton } from '@/components/cta-button'
+import { ArrowUp } from 'lucide-react'
 
 const links = [
-  { label: 'Planos', href: '#planos' },
   { label: 'Estrutura', href: '#estrutura' },
-  { label: 'Diferenciais', href: '#diferenciais' },
-  { label: 'Calculadora de IMC', href: '#imc' },
+  { label: 'Planos', href: '#planos' },
+  { label: 'Método', href: '#diferenciais' },
+  { label: 'IMC', href: '#imc' },
   { label: 'Contato', href: '#contato' },
 ]
 
 export function Footer() {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
-
   return (
-    <footer className="relative overflow-hidden border-t border-border/50 bg-secondary/40 pt-14 pb-8 sm:pt-16">
-      <div className="mesh-bg" aria-hidden />
-
-      <div className="container-tight relative z-10">
-        <div className="mb-10 grid gap-9 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
+    <footer className="border-t border-white/10 bg-[#0a0a09] py-12 text-white sm:py-14">
+      <div className="container-site">
+        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
           <div>
-            <Link href="/" className="mb-5 flex items-center gap-2.5">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary shadow-lg shadow-primary/20">
-                <Dumbbell className="h-6 w-6 text-primary-foreground" />
-              </div>
-              <span className="font-display text-xl font-bold tracking-tight">
-                POWER<span className="text-primary">GYM</span>
-              </span>
+            <Link href="#inicio" className="display-tight text-4xl font-semibold sm:text-5xl">
+              POWER<span className="text-[#f05a28]">/</span>GYM
             </Link>
-
-            <p className="max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-              Modelo demonstrativo de site para academias. Identidade, textos,
-              fotos, planos e contatos são personalizados para cada cliente.
+            <p className="mt-5 max-w-lg text-sm leading-6 text-white/45">
+              Força, cardio e condicionamento em uma experiência direta, clara e feita para virar rotina.
             </p>
-
-            <CtaButton href="#contato" size="sm" className="mt-6">
-              Ver contato demonstrativo
-            </CtaButton>
           </div>
 
-          <nav
-            className="grid grid-cols-2 gap-x-6 gap-y-3 sm:flex sm:flex-wrap sm:justify-start lg:justify-end"
-            aria-label="Links do rodapé"
-          >
+          <nav className="flex flex-wrap gap-x-6 gap-y-3 lg:justify-end" aria-label="Links do rodapé">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                className="text-[10px] font-bold uppercase tracking-[0.14em] text-white/48 transition-colors hover:text-white"
               >
                 {link.label}
               </Link>
@@ -59,20 +38,19 @@ export function Footer() {
           </nav>
         </div>
 
-        <div className="flex flex-col items-center justify-between gap-4 border-t border-border pt-7 sm:flex-row">
-          <p
-            className="text-center text-sm text-muted-foreground sm:text-left"
-            suppressHydrationWarning
-          >
-            © {new Date().getFullYear()} POWER GYM • Projeto demonstrativo
-          </p>
+        <div className="mt-12 flex flex-col gap-5 border-t border-white/10 pt-6 text-[9px] uppercase tracking-[0.13em] text-white/35 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-wrap gap-x-5 gap-y-2">
+            <span>© {new Date().getFullYear()} Power Gym</span>
+            <span>Projeto demonstrativo</span>
+            <span>Desenvolvido por Yagho Sites</span>
+          </div>
           <button
             type="button"
-            onClick={scrollToTop}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-border transition-all hover:border-primary hover:bg-primary/10"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="inline-flex h-10 w-10 items-center justify-center border border-white/15 text-white/55 transition-colors hover:border-[#f05a28] hover:text-[#f05a28]"
             aria-label="Voltar ao topo"
           >
-            <ArrowUp className="h-5 w-5" />
+            <ArrowUp className="h-4 w-4" />
           </button>
         </div>
       </div>
