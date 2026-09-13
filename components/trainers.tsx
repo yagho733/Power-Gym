@@ -53,7 +53,7 @@ export function Trainers() {
                 treino de verdade.
               </h2>
               <p className="mt-7 max-w-2xl text-sm leading-7 text-white/55 sm:text-base">
-                Nada de encher a tela com promessas. O foco aqui é mostrar o que o aluno encontra quando chega: estrutura, modalidades e acompanhamento.
+                Ambientes pensados para diferentes ritmos e objetivos, com áreas de força, condicionamento e treino em grupo conectadas pela mesma proposta: constância com boa orientação.
               </p>
             </div>
           </div>
