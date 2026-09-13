@@ -1,10 +1,11 @@
 'use client'
 
 import Link from 'next/link'
-import { ArrowUp } from 'lucide-react'
+import { ArrowUp, ArrowUpRight } from 'lucide-react'
 
 const links = [
   { label: 'Estrutura', href: '#estrutura' },
+  { label: 'Experiência', href: '#experiencia' },
   { label: 'Planos', href: '#planos' },
   { label: 'Método', href: '#diferenciais' },
   { label: 'IMC', href: '#imc' },
@@ -21,8 +22,15 @@ export function Footer() {
               POWER<span className="text-[#f05a28]">/</span>GYM
             </Link>
             <p className="mt-5 max-w-lg text-sm leading-6 text-white/45">
-              Força, cardio e condicionamento em uma experiência direta, clara e feita para virar rotina.
+              Força, cardio e condicionamento em uma experiência direta, visual e feita para virar rotina.
             </p>
+            <Link
+              href="#contato"
+              className="mt-6 inline-flex items-center gap-2 text-[10px] font-extrabold uppercase tracking-[0.15em] text-[#f05a28] transition-colors hover:text-white"
+            >
+              Agendar uma visita
+              <ArrowUpRight className="h-3.5 w-3.5" />
+            </Link>
           </div>
 
           <nav className="flex flex-wrap gap-x-6 gap-y-3 lg:justify-end" aria-label="Links do rodapé">
