@@ -1,123 +1,69 @@
-import {
-  ArrowUpRight,
-  Clock3,
-  MapPin,
-  MessageCircle,
-  Settings2,
-} from 'lucide-react'
-import { SectionHeader } from '@/components/section-header'
+import Image from 'next/image'
+import { ArrowUpRight, Clock3, MapPin, MessageCircle } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
 
-const whatsappShareUrl = `https://wa.me/?text=${encodeURIComponent(
-  'Olá! Quero saber mais sobre os planos e agendar uma aula experimental.',
-)}`
+const CONTACT_IMAGE =
+  'https://images.unsplash.com/photo-1571902943202-507ec2618e8f?q=88&w=2200&auto=format&fit=crop'
 
-const contactDetails = [
-  {
-    icon: MapPin,
-    label: 'Localização de exemplo',
-    value: 'Pelotas / RS',
-  },
-  {
-    icon: Clock3,
-    label: 'Horários ilustrativos',
-    value: 'Seg. a sex., 6h às 22h • Sáb., 8h às 14h',
-  },
-  {
-    icon: MessageCircle,
-    label: 'Atendimento',
-    value: 'WhatsApp configurado com o número da academia',
-  },
-]
+const whatsappShareUrl = `https://wa.me/?text=${encodeURIComponent(
+  'Olá! Quero conhecer os planos e agendar uma visita na Power Gym.',
+)}`
 
 export function Contact() {
   return (
-    <section
-      id="contato"
-      className="relative overflow-hidden bg-zinc-950 py-24 sm:py-32"
-    >
-      <div className="pointer-events-none absolute top-1/4 right-[5%] h-[500px] w-[500px] rounded-full bg-primary/5 blur-[140px]" />
-      <div className="pointer-events-none absolute bottom-1/4 left-[5%] h-[450px] w-[450px] rounded-full bg-orange-600/5 blur-[120px]" />
+    <section id="contato" className="relative min-h-[860px] overflow-hidden bg-[#0a0a09]">
+      <Image
+        src={CONTACT_IMAGE}
+        alt="Área de treino da Power Gym"
+        fill
+        sizes="100vw"
+        className="object-cover object-center"
+      />
+      <div className="absolute inset-0 bg-black/70" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/75 to-black/25" />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="container-site relative z-10 flex min-h-[860px] flex-col justify-between py-24 sm:py-28 lg:py-32">
         <Reveal>
-          <SectionHeader
-            badge="Contato rápido"
-            title="Da dúvida para a"
-            highlight="aula experimental"
-            description="O visitante encontra as informações principais e inicia uma conversa sem precisar preencher um formulário que não envia nada."
-          />
+          <div className="max-w-5xl">
+            <span className="eyebrow text-[#f05a28]">Primeiro treino</span>
+            <h2 className="display-tight mt-8 text-[clamp(4rem,11vw,9.2rem)] font-semibold leading-[0.8] text-white">
+              Comece
+              <br />
+              entrando.
+            </h2>
+            <p className="mt-8 max-w-xl text-sm leading-7 text-white/60 sm:text-base">
+              Conheça o espaço, entenda os planos e converse com a equipe antes de decidir. O primeiro passo pode ser só uma visita.
+            </p>
+          </div>
         </Reveal>
 
-        <div className="mx-auto grid max-w-5xl items-stretch gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-10">
-          <Reveal className="h-full">
-            <article className="h-full rounded-3xl border border-zinc-800/60 bg-zinc-900/20 p-6 backdrop-blur-xl sm:p-8">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">
-                Informações de exemplo
-              </p>
-              <div className="mt-7 space-y-6">
-                {contactDetails.map((detail) => {
-                  const Icon = detail.icon
-
-                  return (
-                    <div key={detail.label} className="flex items-start gap-4">
-                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-zinc-800 bg-zinc-900">
-                        <Icon className="h-5 w-5 text-primary" />
-                      </div>
-                      <div>
-                        <h3 className="text-sm font-semibold text-white">
-                          {detail.label}
-                        </h3>
-                        <p className="mt-1 text-sm leading-relaxed text-zinc-400">
-                          {detail.value}
-                        </p>
-                      </div>
-                    </div>
-                  )
-                })}
-              </div>
-            </article>
-          </Reveal>
-
-          <Reveal delay={100} className="h-full">
-            <article className="relative flex h-full flex-col justify-between overflow-hidden rounded-3xl border border-primary/25 bg-gradient-to-br from-zinc-900/90 to-zinc-950 p-7 shadow-2xl shadow-primary/10 sm:p-10">
-              <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-primary/10 blur-3xl" />
-
-              <div className="relative">
-                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-white shadow-lg shadow-primary/25">
-                  <MessageCircle className="h-7 w-7" />
-                </div>
-                <h3 className="font-display text-3xl font-black text-white sm:text-4xl">
-                  Pronto para começar?
-                </h3>
-                <p className="mt-4 max-w-lg text-base leading-relaxed text-zinc-400">
-                  Abra o WhatsApp, tire suas dúvidas e combine o melhor horário
-                  para conhecer a academia.
-                </p>
-              </div>
-
-              <div className="relative mt-9">
-                <a
-                  href={whatsappShareUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary to-orange-600 px-8 py-4 text-base font-bold text-white shadow-xl shadow-primary/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-primary/35 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 sm:w-auto"
-                >
-                  Testar contato pelo WhatsApp
-                  <ArrowUpRight className="h-5 w-5" />
-                </a>
-
-                <div className="mt-5 flex items-start gap-3 rounded-xl border border-zinc-800 bg-zinc-950/60 p-4">
-                  <Settings2 className="mt-0.5 h-5 w-5 shrink-0 text-zinc-500" />
-                  <p className="text-sm leading-relaxed text-zinc-500">
-                    Neste modelo, o WhatsApp abre sem destinatário. Na entrega
-                    ao cliente, o botão é conectado ao número real da academia.
-                  </p>
-                </div>
-              </div>
-            </article>
-          </Reveal>
-        </div>
+        <Reveal delay={90}>
+          <div className="mt-16 grid border-t border-white/20 lg:grid-cols-[1fr_1fr_1.2fr]">
+            <div className="border-b border-white/20 py-6 lg:border-r lg:border-b-0 lg:pr-8">
+              <MapPin className="h-4 w-4 text-[#f05a28]" />
+              <span className="mt-4 block text-[9px] font-bold uppercase tracking-[0.18em] text-white/40">Local</span>
+              <strong className="mt-2 block text-sm font-semibold text-white">Pelotas · RS</strong>
+            </div>
+            <div className="border-b border-white/20 py-6 lg:border-r lg:border-b-0 lg:px-8">
+              <Clock3 className="h-4 w-4 text-[#f05a28]" />
+              <span className="mt-4 block text-[9px] font-bold uppercase tracking-[0.18em] text-white/40">Horários</span>
+              <strong className="mt-2 block text-sm font-semibold text-white">Seg. a sex. · 06h às 22h</strong>
+            </div>
+            <div className="py-6 lg:pl-8">
+              <MessageCircle className="h-4 w-4 text-[#f05a28]" />
+              <span className="mt-4 block text-[9px] font-bold uppercase tracking-[0.18em] text-white/40">Atendimento</span>
+              <a
+                href={whatsappShareUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-3 inline-flex items-center gap-3 text-sm font-semibold text-white transition-colors hover:text-[#f05a28]"
+              >
+                Falar pelo WhatsApp
+                <ArrowUpRight className="h-4 w-4" />
+              </a>
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   )
