@@ -2,118 +2,101 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { Menu, X, Dumbbell } from 'lucide-react'
+import { ArrowUpRight, Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { CtaButton } from '@/components/cta-button'
 
 const navLinks = [
-  { href: '#inicio', label: 'Início' },
-  { href: '#planos', label: 'Planos' },
   { href: '#estrutura', label: 'Estrutura' },
-  { href: '#diferenciais', label: 'Diferenciais' },
+  { href: '#planos', label: 'Planos' },
+  { href: '#diferenciais', label: 'Método' },
   { href: '#imc', label: 'IMC' },
   { href: '#contato', label: 'Contato' },
 ]
 
 export function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
+  const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 16)
+    const onScroll = () => setScrolled(window.scrollY > 24)
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   useEffect(() => {
-    document.body.style.overflow = isMenuOpen ? 'hidden' : ''
+    document.body.style.overflow = open ? 'hidden' : ''
     return () => {
       document.body.style.overflow = ''
     }
-  }, [isMenuOpen])
+  }, [open])
 
   return (
     <header
       className={cn(
-        'fixed top-0 right-0 left-0 z-50 transition-all duration-300',
-        isScrolled ? 'glass-strong shadow-lg shadow-black/20' : 'glass',
+        'fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300',
+        scrolled || open
+          ? 'border-white/10 bg-[#0a0a09]/95 backdrop-blur-xl'
+          : 'border-white/10 bg-[#0a0a09]/55 backdrop-blur-md',
       )}
     >
-      <div className="container-tight">
-        <div className="flex h-16 items-center justify-between sm:h-[4.5rem] md:h-20">
-          <Link
-            href="/"
-            className="group flex items-center gap-2.5"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary shadow-lg shadow-primary/25 transition-transform duration-300 group-hover:scale-105 sm:h-10 sm:w-10">
-              <Dumbbell className="h-5 w-5 text-primary-foreground sm:h-6 sm:w-6" />
-            </div>
-            <span className="font-display text-lg font-bold tracking-tight sm:text-xl">
-              POWER<span className="text-primary">GYM</span>
-            </span>
-          </Link>
+      <div className="container-site flex h-[72px] items-center justify-between lg:h-[82px]">
+        <Link href="#inicio" onClick={() => setOpen(false)} className="flex items-end gap-3">
+          <span className="display-tight text-[23px] font-semibold leading-none text-white sm:text-[27px]">
+            POWER<span className="text-[#f05a28]">/</span>GYM
+          </span>
+          <span className="hidden pb-0.5 text-[9px] font-semibold uppercase tracking-[0.2em] text-white/45 sm:block">
+            Pelotas · RS
+          </span>
+        </Link>
 
-          <nav className="hidden items-center gap-6 lg:flex xl:gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-sm font-medium text-muted-foreground transition-colors duration-300 hover:text-primary"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-
-          <div className="hidden lg:block">
-            <CtaButton href="#contato" size="sm">
-              Agendar uma aula
-            </CtaButton>
-          </div>
-
-          <button
-            type="button"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="rounded-lg p-2.5 text-foreground transition-colors hover:bg-primary/10 hover:text-primary lg:hidden"
-            aria-expanded={isMenuOpen}
-            aria-label={isMenuOpen ? 'Fechar menu' : 'Abrir menu'}
-          >
-            {isMenuOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
-          </button>
-        </div>
-      </div>
-
-      <div
-        className={cn(
-          'lg:hidden overflow-hidden border-t border-border/50 transition-all duration-300 ease-out',
-          isMenuOpen ? 'max-h-[32rem] opacity-100' : 'max-h-0 opacity-0 border-transparent',
-        )}
-      >
-        <nav className="container-tight flex flex-col gap-1 py-4 pb-6">
+        <nav className="hidden items-center gap-7 xl:flex" aria-label="Navegação principal">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              onClick={() => setIsMenuOpen(false)}
-              className="rounded-lg px-3 py-3 text-base font-medium text-muted-foreground transition-colors hover:bg-primary/10 hover:text-primary"
+              className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/60 transition-colors hover:text-white"
             >
               {link.label}
             </Link>
           ))}
-          <CtaButton
-            href="#contato"
-            fullWidth
-            className="mt-3"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Agendar uma aula
-          </CtaButton>
+        </nav>
+
+        <div className="hidden xl:block">
+          <Link href="#contato" className="inline-flex h-10 items-center gap-2 border border-white/20 px-4 text-[10px] font-bold uppercase tracking-[0.14em] text-white transition-colors hover:border-[#f05a28] hover:text-[#f05a28]">
+            Agendar visita
+            <ArrowUpRight className="h-3.5 w-3.5" />
+          </Link>
+        </div>
+
+        <button
+          type="button"
+          onClick={() => setOpen((value) => !value)}
+          className="flex h-10 w-10 items-center justify-center border border-white/15 text-white xl:hidden"
+          aria-expanded={open}
+          aria-label={open ? 'Fechar menu' : 'Abrir menu'}
+        >
+          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+        </button>
+      </div>
+
+      <div className={cn('overflow-hidden transition-all duration-300 xl:hidden', open ? 'max-h-[520px] border-t border-white/10' : 'max-h-0')}>
+        <nav className="container-site flex flex-col py-6" aria-label="Navegação mobile">
+          {navLinks.map((link, index) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => setOpen(false)}
+              className="flex items-center justify-between border-b border-white/10 py-4"
+            >
+              <span className="display-tight text-2xl font-medium text-white">{link.label}</span>
+              <span className="text-[10px] font-semibold text-white/35">0{index + 1}</span>
+            </Link>
+          ))}
+          <Link href="#contato" onClick={() => setOpen(false)} className="orange-link mt-6 self-start">
+            Agendar visita
+            <ArrowUpRight className="h-4 w-4" />
+          </Link>
         </nav>
       </div>
     </header>
