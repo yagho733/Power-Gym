@@ -17,32 +17,11 @@ const oswald = Oswald({
 })
 
 export const metadata: Metadata = {
-  title: 'POWER GYM | Modelo de site para academias',
+  title: 'POWER GYM | Força, cardio e condicionamento',
   description:
-    'Modelo demonstrativo de site para academias, com planos, estrutura, calculadora de IMC e contato pelo WhatsApp.',
-  keywords: [
-    'academia',
-    'fitness',
-    'musculação',
-    'personal trainer',
-    'treino',
-    'saúde',
-  ],
+    'Academia com musculação, cardio, treino funcional e acompanhamento próximo.',
   icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
+    icon: '/icon.svg',
     apple: '/apple-icon.png',
   },
 }
@@ -50,7 +29,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#0a0a0c',
+  themeColor: '#0a0a09',
 }
 
 export default function RootLayout({
@@ -59,13 +38,9 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html
-      lang="pt-BR"
-      className="bg-background scroll-smooth"
-      suppressHydrationWarning
-    >
+    <html lang="pt-BR" className="bg-background" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${oswald.variable} font-sans antialiased`}
+        className={`${inter.variable} ${oswald.variable} font-sans`}
         suppressHydrationWarning
       >
         {children}
