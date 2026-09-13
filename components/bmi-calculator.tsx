@@ -1,11 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { Calculator, Info } from 'lucide-react'
-import { SectionHeader } from '@/components/section-header'
-import { CtaButton } from '@/components/cta-button'
+import { ArrowRight } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
-import { cn } from '@/lib/utils'
 
 export function BMICalculator() {
   const [height, setHeight] = useState('')
@@ -14,38 +11,22 @@ export function BMICalculator() {
   const [category, setCategory] = useState('')
 
   const calculateBMI = () => {
-    const h = parseFloat(height) / 100
-    const w = parseFloat(weight)
+    const h = Number.parseFloat(height) / 100
+    const w = Number.parseFloat(weight)
+    if (!(h > 0 && w > 0)) return
 
-    if (h > 0 && w > 0) {
-      const result = w / (h * h)
-      setBmi(result)
+    const result = w / (h * h)
+    setBmi(result)
 
-      if (result < 18.5) {
-        setCategory('Abaixo do peso')
-      } else if (result < 25) {
-        setCategory('Peso normal')
-      } else if (result < 30) {
-        setCategory('Sobrepeso')
-      } else if (result < 35) {
-        setCategory('Obesidade Grau I')
-      } else if (result < 40) {
-        setCategory('Obesidade Grau II')
-      } else {
-        setCategory('Obesidade Grau III')
-      }
-    }
+    if (result < 18.5) setCategory('Abaixo do peso')
+    else if (result < 25) setCategory('Faixa de referência')
+    else if (result < 30) setCategory('Sobrepeso')
+    else if (result < 35) setCategory('Obesidade grau I')
+    else if (result < 40) setCategory('Obesidade grau II')
+    else setCategory('Obesidade grau III')
   }
 
-  const getBmiColor = () => {
-    if (!bmi) return 'text-foreground'
-    if (bmi < 18.5) return 'text-sky-400'
-    if (bmi < 25) return 'text-emerald-400'
-    if (bmi < 30) return 'text-amber-400'
-    return 'text-primary'
-  }
-
-  const resetCalculator = () => {
+  const reset = () => {
     setHeight('')
     setWeight('')
     setBmi(null)
@@ -53,127 +34,94 @@ export function BMICalculator() {
   }
 
   return (
-    <section id="imc" className="section-padding relative overflow-hidden">
-      <div className="mesh-bg" aria-hidden />
+    <section id="imc" className="bg-[#ece8df] py-24 text-[#0a0a09] sm:py-28 lg:py-36">
+      <div className="container-site">
+        <div className="grid gap-14 border-t border-black/20 pt-7 lg:grid-cols-[0.78fr_1.22fr] lg:gap-20">
+          <Reveal>
+            <div>
+              <span className="eyebrow text-[#c74418]">Ferramenta rápida</span>
+              <h2 className="display-tight mt-8 text-[clamp(3.5rem,8vw,6.8rem)] font-medium leading-[0.84]">
+                Seu IMC,
+                <br />
+                sem enrolação.
+              </h2>
+              <p className="mt-7 max-w-md text-sm leading-7 text-black/58 sm:text-base">
+                Uma referência simples entre peso e altura. Não substitui avaliação clínica, composição corporal ou orientação individual.
+              </p>
+            </div>
+          </Reveal>
 
-      <div className="container-tight relative z-10">
-        <Reveal>
-          <SectionHeader
-            badge="Calculadora"
-            title="Calcule seu"
-            highlight="IMC"
-            description="O Índice de Massa Corporal (IMC) relaciona peso e altura e pode servir como uma referência inicial."
-          />
-        </Reveal>
-
-        <Reveal delay={80}>
-          <div className="mx-auto max-w-2xl">
-            <div className="glass glow rounded-2xl p-6 sm:rounded-3xl sm:p-8 md:p-12">
-              <div className="mb-6 flex items-center gap-3 sm:mb-8">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
-                  <Calculator className="h-6 w-6 text-primary" />
-                </div>
-                <div>
-                  <h3 className="font-display text-lg font-bold sm:text-xl">
-                    Calculadora de IMC
-                  </h3>
-                  <div className="text-sm text-muted-foreground">
-                    Descubra seu índice de massa corporal
-                  </div>
-                </div>
-              </div>
-
-              <div className="mb-6 grid gap-4 sm:mb-8 sm:grid-cols-2 sm:gap-6">
-                <div>
-                  <label htmlFor="height" className="mb-2 block text-sm font-medium">
-                    Altura (cm)
-                  </label>
+          <Reveal delay={80}>
+            <div className="border border-black/20 bg-[#f3f0e9] p-6 sm:p-8 lg:p-10">
+              <div className="grid gap-7 sm:grid-cols-2">
+                <label className="block">
+                  <span className="text-[10px] font-extrabold uppercase tracking-[0.16em] text-black/48">Altura · cm</span>
                   <input
                     type="number"
-                    id="height"
                     inputMode="decimal"
                     min={100}
                     max={250}
                     value={height}
-                    onChange={(e) => setHeight(e.target.value)}
-                    placeholder="Ex: 175"
-                    className="input-premium"
+                    onChange={(event) => setHeight(event.target.value)}
+                    placeholder="175"
+                    className="input-editorial mt-2"
                   />
-                </div>
-                <div>
-                  <label htmlFor="weight" className="mb-2 block text-sm font-medium">
-                    Peso (kg)
-                  </label>
+                </label>
+                <label className="block">
+                  <span className="text-[10px] font-extrabold uppercase tracking-[0.16em] text-black/48">Peso · kg</span>
                   <input
                     type="number"
-                    id="weight"
                     inputMode="decimal"
                     min={30}
                     max={300}
                     value={weight}
-                    onChange={(e) => setWeight(e.target.value)}
-                    placeholder="Ex: 70"
-                    className="input-premium"
+                    onChange={(event) => setWeight(event.target.value)}
+                    placeholder="70"
+                    className="input-editorial mt-2"
                   />
-                </div>
+                </label>
               </div>
 
-              <div className="mb-6 flex flex-col gap-3 sm:mb-8 sm:flex-row sm:gap-4">
-                <CtaButton
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <button
                   type="button"
                   onClick={calculateBMI}
-                  fullWidth
-                  className="sm:flex-1"
+                  className="orange-link flex-1"
                 >
-                  Calcular IMC
-                </CtaButton>
-                <CtaButton
+                  Calcular
+                  <ArrowRight className="h-4 w-4" />
+                </button>
+                <button
                   type="button"
-                  variant="outline"
-                  onClick={resetCalculator}
-                  className="sm:px-8"
+                  onClick={reset}
+                  className="min-h-[52px] border border-black/20 px-6 text-[11px] font-extrabold uppercase tracking-[0.12em] transition-colors hover:border-black/50"
                 >
                   Limpar
-                </CtaButton>
+                </button>
               </div>
 
-              {bmi !== null && (
-                <div className="animate-fade-in-up rounded-2xl border border-border bg-secondary/40 p-5 sm:p-6">
-                  <div className="mb-4 text-center">
-                    <div
-                      className={cn(
-                        'font-display text-4xl font-bold tabular-nums sm:text-5xl',
-                        getBmiColor(),
-                      )}
-                    >
-                      {bmi.toFixed(1)}
-                    </div>
-                    <div className={cn('mt-2 text-lg font-semibold', getBmiColor())}>
-                      {category}
-                    </div>
+              <div className="mt-10 border-t border-black/20 pt-7" aria-live="polite">
+                {bmi === null ? (
+                  <div className="grid gap-4 sm:grid-cols-[1fr_auto] sm:items-end">
+                    <p className="max-w-md text-sm leading-6 text-black/50">
+                      Preencha altura e peso para ver o índice e a faixa de referência.
+                    </p>
+                    <span className="display-tight text-5xl font-medium text-black/15 sm:text-6xl">00.0</span>
                   </div>
-                  <div className="mt-4">
-                    <div className="mb-2 h-2.5 rounded-full bg-gradient-to-r from-sky-400 via-emerald-400 to-primary" />
-                    <div className="flex justify-between text-[10px] text-muted-foreground sm:text-xs">
-                      <span>{'<18.5'}</span>
-                      <span>18.5–24.9</span>
-                      <span>25–29.9</span>
-                      <span>{'>30'}</span>
+                ) : (
+                  <div className="grid gap-5 sm:grid-cols-[1fr_auto] sm:items-end">
+                    <div>
+                      <span className="text-[10px] font-extrabold uppercase tracking-[0.16em] text-black/45">Resultado</span>
+                      <h3 className="display-tight mt-2 text-3xl font-medium">{category}</h3>
+                      <p className="mt-2 text-xs leading-5 text-black/50">Use o número como referência inicial, não como diagnóstico.</p>
                     </div>
+                    <strong className="display-tight text-7xl font-medium leading-none text-[#c74418] sm:text-8xl">{bmi.toFixed(1)}</strong>
                   </div>
-                </div>
-              )}
-
-              <div className="mt-6 flex items-start gap-3 rounded-xl border border-primary/20 bg-primary/5 p-4">
-                <Info className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                <div className="text-sm leading-relaxed text-muted-foreground">
-                  O IMC não substitui uma avaliação individual. Para orientações
-                  sobre treino e saúde, procure profissionais qualificados.
-                </div>
+                )}
               </div>
             </div>
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
       </div>
     </section>
   )
