@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils'
 
 const navLinks = [
   { href: '#estrutura', label: 'Estrutura' },
+  { href: '#experiencia', label: 'Experiência' },
   { href: '#planos', label: 'Planos' },
   { href: '#diferenciais', label: 'Método' },
   { href: '#imc', label: 'IMC' },
@@ -50,12 +51,12 @@ export function Header() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-7 xl:flex" aria-label="Navegação principal">
+        <nav className="hidden items-center gap-6 xl:flex" aria-label="Navegação principal">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/60 transition-colors hover:text-white"
+              className="relative py-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-white/58 transition-colors after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:origin-left after:scale-x-0 after:bg-[#f05a28] after:transition-transform hover:text-white hover:after:scale-x-100"
             >
               {link.label}
             </Link>
@@ -72,7 +73,7 @@ export function Header() {
         <button
           type="button"
           onClick={() => setOpen((value) => !value)}
-          className="flex h-10 w-10 items-center justify-center border border-white/15 text-white xl:hidden"
+          className="flex h-10 w-10 items-center justify-center border border-white/15 text-white transition-colors hover:border-[#f05a28] hover:text-[#f05a28] xl:hidden"
           aria-expanded={open}
           aria-label={open ? 'Fechar menu' : 'Abrir menu'}
         >
@@ -80,7 +81,7 @@ export function Header() {
         </button>
       </div>
 
-      <div className={cn('overflow-hidden transition-all duration-300 xl:hidden', open ? 'max-h-[520px] border-t border-white/10' : 'max-h-0')}>
+      <div className={cn('overflow-hidden transition-all duration-300 xl:hidden', open ? 'max-h-[620px] border-t border-white/10' : 'max-h-0')}>
         <nav className="container-site flex flex-col py-6" aria-label="Navegação mobile">
           {navLinks.map((link, index) => (
             <Link
@@ -90,7 +91,7 @@ export function Header() {
               className="flex items-center justify-between border-b border-white/10 py-4"
             >
               <span className="display-tight text-2xl font-medium text-white">{link.label}</span>
-              <span className="text-[10px] font-semibold text-white/35">0{index + 1}</span>
+              <span className="text-[10px] font-semibold text-white/35">{String(index + 1).padStart(2, '0')}</span>
             </Link>
           ))}
           <Link href="#contato" onClick={() => setOpen(false)} className="orange-link mt-6 self-start">
