@@ -9,18 +9,18 @@ const EXPERIENCE_IMAGE =
 const principles = [
   {
     index: '01',
-    title: 'Chegue com direção',
-    text: 'Objetivo claro, treino organizado e menos tempo tentando descobrir sozinho o que fazer.',
+    title: 'Saber o que fazer',
+    text: 'Chegar com o treino organizado evita perder tempo decidindo a próxima série no meio da sessão.',
   },
   {
     index: '02',
-    title: 'Treine com presença',
-    text: 'Uma equipe acessível durante a sessão muda a qualidade da execução e do progresso.',
+    title: 'Ter ajuda por perto',
+    text: 'Dúvida de execução ou ajuste de exercício não precisa virar um treino inteiro feito no improviso.',
   },
   {
     index: '03',
-    title: 'Volte com constância',
-    text: 'O melhor plano é o que funciona na vida real e continua fazendo sentido depois das primeiras semanas.',
+    title: 'Conseguir voltar',
+    text: 'Horário amplo e opções diferentes de treino ajudam a manter frequência mesmo quando a semana aperta.',
   },
 ]
 
@@ -43,8 +43,8 @@ export function Experience() {
                 <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-white/50">
                   Power Gym · experiência
                 </span>
-                <p className="display-tight mt-2 max-w-xl text-3xl font-medium leading-[0.95] sm:text-4xl">
-                  Ambiente forte. Rotina possível.
+                <p className="display-tight mt-2 max-w-xl text-3xl font-medium sm:text-4xl">
+                  Entrar. Treinar. Voltar.
                 </p>
               </div>
               <span className="hidden text-[10px] font-bold uppercase tracking-[0.18em] text-[#f05a28] sm:block">
@@ -58,13 +58,11 @@ export function Experience() {
           <Reveal>
             <div>
               <span className="eyebrow text-[#c74418]">Experiência de treino</span>
-              <h2 className="display-tight mt-8 max-w-3xl text-[clamp(3.8rem,8vw,7rem)] font-medium leading-[0.84]">
-                Não é só entrar.
-                <br />
-                É querer voltar.
+              <h2 className="display-tight mt-8 max-w-3xl text-[clamp(3.25rem,8vw,6.7rem)] font-medium">
+                Treinar bem precisa ser simples.
               </h2>
-              <p className="mt-8 max-w-xl text-sm leading-7 text-black/60 sm:text-base">
-                Uma boa academia não depende de excesso de promessa. Ela precisa facilitar o treino: espaço bem organizado, orientação quando importa e uma rotina que faça sentido para quem está do outro lado da catraca.
+              <p className="mt-8 max-w-xl text-sm leading-7 text-black/62 sm:text-base">
+                Chegar, saber o que fazer, ter espaço para executar e encontrar ajuda quando precisar. O resto não deveria atrapalhar o treino.
               </p>
             </div>
           </Reveal>
@@ -80,7 +78,7 @@ export function Experience() {
                     <h3 className="display-tight text-2xl font-medium sm:text-3xl">
                       {principle.title}
                     </h3>
-                    <p className="mt-2 max-w-lg text-sm leading-6 text-black/56">
+                    <p className="mt-2 max-w-lg text-sm leading-6 text-black/58">
                       {principle.text}
                     </p>
                   </div>
