@@ -37,7 +37,16 @@
 .container-site { width: min(100% - 40px, 1440px); margin-inline: auto; }
 @media (min-width: 768px) { .container-site { width: min(100% - 72px, 1440px); } }
 
-.display-tight { font-family: var(--font-display); letter-spacing: -0.045em; text-transform: uppercase; }
+.display-tight {
+  max-width: 100%;
+  padding-bottom: .045em;
+  font-family: var(--font-display);
+  line-height: .9;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
 .eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; }
 .eyebrow::before { content: ''; width: 28px; height: 1px; background: currentColor; opacity: 0.65; }
 .rule-light { border-color: var(--line); }
@@ -56,13 +65,29 @@
 #inicio img,
 #estrutura img,
 #experiencia img,
+#treino-em-foco img,
 #contato img {
   filter: saturate(.8) contrast(1.06) brightness(.95);
 }
 
 .marquee { overflow: hidden; white-space: nowrap; }
-.marquee-track { display: inline-flex; min-width: max-content; animation: marquee 24s linear infinite; }
-@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: marquee 24s linear infinite;
+}
+.marquee-group {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 2.5rem;
+  padding-right: 2.5rem;
+}
+@keyframes marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
 
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: #0a0a09; }
@@ -72,8 +97,9 @@
 @media (max-width: 640px) {
   section[id] { scroll-margin-top: 72px; }
   .container-site { width: min(100% - 32px, 1440px); }
-  .display-tight { letter-spacing: -0.035em; }
+  .display-tight { line-height: .94; letter-spacing: -0.025em; }
   .orange-link, .ghost-link { width: 100%; }
+  .marquee-group { gap: 1.75rem; padding-right: 1.75rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
