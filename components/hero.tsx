@@ -14,6 +14,19 @@ const tickerItems = [
   'Aulas coletivas',
 ]
 
+function TickerGroup({ hidden = false }: { hidden?: boolean }) {
+  return (
+    <div className="marquee-group" aria-hidden={hidden || undefined}>
+      {tickerItems.map((item) => (
+        <span key={item} className="flex items-center gap-7">
+          {item}
+          <span className="text-[9px]" aria-hidden>●</span>
+        </span>
+      ))}
+    </div>
+  )
+}
+
 export function Hero() {
   return (
     <section id="inicio" className="relative overflow-hidden bg-[#0a0a09] pt-[72px] lg:pt-[82px]">
@@ -22,15 +35,15 @@ export function Hero() {
           <Reveal>
             <div className="max-w-3xl">
               <div className="eyebrow text-[#f05a28]">Força · cardio · condicionamento</div>
-              <h1 className="display-tight mt-8 text-[clamp(4.4rem,14vw,8.4rem)] font-semibold leading-[0.79] text-white lg:text-[clamp(6rem,8.1vw,9.5rem)]">
+              <h1 className="display-tight mt-8 text-[clamp(3.7rem,17vw,8.4rem)] font-semibold text-white lg:text-[clamp(6rem,8.1vw,9.5rem)]">
                 Treino
                 <br />
                 sem
                 <br />
                 <span className="text-[#f05a28]">atalho.</span>
               </h1>
-              <p className="mt-8 max-w-xl text-[15px] leading-7 text-white/58 sm:text-base lg:mt-10 lg:text-[17px]">
-                Estrutura completa para quem quer treinar com constância, orientação presente e uma rotina que funciona fora do primeiro mês.
+              <p className="mt-8 max-w-xl text-[15px] leading-7 text-white/62 sm:text-base lg:mt-10 lg:text-[17px]">
+                Musculação, cardio e funcional com espaço para treinar bem, orientação no salão e uma rotina que cabe na semana.
               </p>
             </div>
           </Reveal>
@@ -78,13 +91,9 @@ export function Hero() {
       </div>
 
       <div className="marquee border-y border-white/10 bg-[#f05a28] py-3.5 text-[#0a0a09]">
-        <div className="marquee-track display-tight text-[17px] font-semibold tracking-[0.05em] sm:text-xl">
-          {[...tickerItems, ...tickerItems].map((item, index) => (
-            <span key={`${item}-${index}`} className="flex items-center gap-7 pr-7">
-              {item}
-              <span className="text-[10px]">●</span>
-            </span>
-          ))}
+        <div className="marquee-track display-tight text-[17px] font-semibold tracking-[0.04em] sm:text-xl">
+          <TickerGroup />
+          <TickerGroup hidden />
         </div>
       </div>
     </section>
