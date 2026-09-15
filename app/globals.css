@@ -70,23 +70,43 @@
   filter: saturate(.8) contrast(1.06) brightness(.95);
 }
 
-.marquee { overflow: hidden; white-space: nowrap; }
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  contain: paint;
+}
+
 .marquee-track {
   display: flex;
   width: max-content;
+  min-width: max-content;
   will-change: transform;
-  animation: marquee 24s linear infinite;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  animation: marquee 22s linear infinite;
+  -webkit-animation: marquee 22s linear infinite;
+  animation-play-state: running;
+  -webkit-animation-play-state: running;
 }
+
 .marquee-group {
   display: flex;
-  flex: none;
+  flex: 0 0 auto;
   align-items: center;
   gap: 2.5rem;
   padding-right: 2.5rem;
 }
+
 @keyframes marquee {
-  from { transform: translate3d(0, 0, 0); }
-  to { transform: translate3d(-50%, 0, 0); }
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+@-webkit-keyframes marquee {
+  0% { -webkit-transform: translate3d(0, 0, 0); }
+  100% { -webkit-transform: translate3d(-50%, 0, 0); }
 }
 
 ::-webkit-scrollbar { width: 8px; }
@@ -100,9 +120,25 @@
   .display-tight { line-height: .94; letter-spacing: -0.025em; }
   .orange-link, .ghost-link { width: 100%; }
   .marquee-group { gap: 1.75rem; padding-right: 1.75rem; }
+  .marquee-track {
+    animation-duration: 16s;
+    -webkit-animation-duration: 16s;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
-  .marquee-track { animation: none; }
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  /* O ticker é informação de navegação visual do hero e precisa continuar em fluxo.
+     Mantemos o movimento lento e contínuo mesmo em navegadores embutidos que
+     propagam prefers-reduced-motion de forma agressiva (ex.: Instagram no iOS). */
+  .marquee-track {
+    animation: marquee 28s linear infinite !important;
+    -webkit-animation: marquee 28s linear infinite !important;
+  }
 }
