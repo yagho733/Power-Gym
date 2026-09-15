@@ -7,7 +7,7 @@ const plans = [
     index: '01',
     name: 'Essencial',
     price: '89',
-    description: 'Para quem quer musculação e cardio com liberdade de horário.',
+    description: 'Para quem quer musculação e cardio com uma rotina direta.',
     bestFor: 'Rotina simples',
     collective: '—',
     review: 'Inicial',
@@ -19,24 +19,24 @@ const plans = [
     index: '02',
     name: 'Performance',
     price: '149',
-    description: 'Mais variedade para quem quer construir uma rotina completa.',
+    description: 'Mais variedade para combinar força, cardio e aulas na mesma semana.',
     bestFor: 'Mais variedade',
-    collective: 'Ilimitadas',
+    collective: 'Incluídas',
     review: 'Periódica',
     support: 'Ampliado',
-    features: ['Tudo do Essencial', 'Aulas coletivas', 'Renovação de treino', 'Avaliação periódica', 'Horários ampliados'],
+    features: ['Tudo do Essencial', 'Aulas coletivas', 'Renovação de treino', 'Avaliação periódica'],
     featured: true,
   },
   {
     index: '03',
     name: 'Acompanhado',
     price: '189',
-    description: 'Mais proximidade para quem prefere ajustes frequentes e orientação individual.',
+    description: 'Para quem prefere revisar o treino com mais frequência e ter orientação mais próxima.',
     bestFor: 'Mais orientação',
-    collective: 'Ilimitadas',
+    collective: 'Incluídas',
     review: 'Frequente',
     support: 'Próximo',
-    features: ['Tudo do Performance', 'Encontros de acompanhamento', 'Ajustes individuais', 'Leitura de evolução', 'Prioridade em agendamentos'],
+    features: ['Tudo do Performance', 'Encontros de acompanhamento', 'Ajustes individuais', 'Leitura de evolução'],
     featured: false,
   },
 ]
@@ -51,13 +51,11 @@ export function Plans() {
               <span className="eyebrow text-[#c74418]">Planos</span>
             </div>
             <div className="flex flex-col gap-7 xl:flex-row xl:items-end xl:justify-between">
-              <h2 className="display-tight max-w-3xl text-[clamp(3.2rem,8vw,6.8rem)] font-medium leading-[0.86]">
-                Escolha o ritmo.
-                <br />
-                A gente sustenta.
+              <h2 className="display-tight max-w-3xl text-[clamp(3.05rem,8vw,6.8rem)] font-medium">
+                Escolha o seu ritmo.
               </h2>
-              <p className="max-w-md text-sm leading-7 text-black/58 sm:text-base">
-                Três níveis de acesso, com diferenças objetivas de acompanhamento e variedade. Compare primeiro; escolha depois.
+              <p className="max-w-md text-sm leading-7 text-black/60 sm:text-base">
+                Compare o que muda de um plano para outro e escolha pelo tipo de acompanhamento que você quer ter.
               </p>
             </div>
           </div>
@@ -66,10 +64,10 @@ export function Plans() {
         <div className="mt-14 grid border-t border-l border-black/20 lg:grid-cols-3">
           {plans.map((plan, index) => (
             <Reveal key={plan.name} delay={index * 70}>
-              <article className={`relative flex h-full min-h-[610px] flex-col border-r border-b border-black/20 p-6 sm:p-8 ${plan.featured ? 'bg-[#0a0a09] text-[#f1eee7]' : 'bg-transparent'}`}>
+              <article className={`relative flex h-full flex-col border-r border-b border-black/20 p-6 sm:p-8 ${plan.featured ? 'bg-[#0a0a09] text-[#f1eee7]' : 'bg-transparent'}`}>
                 {plan.featured && (
                   <span className="absolute right-0 top-0 bg-[#f05a28] px-4 py-2 text-[9px] font-extrabold uppercase tracking-[0.16em] text-[#0a0a09]">
-                    Mais escolhido
+                    Em destaque
                   </span>
                 )}
 
@@ -79,14 +77,14 @@ export function Plans() {
                 </div>
 
                 <div className="mt-14">
-                  <h3 className="display-tight text-4xl font-medium sm:text-5xl">{plan.name}</h3>
-                  <p className={`mt-4 min-h-[72px] max-w-sm text-sm leading-6 ${plan.featured ? 'text-white/55' : 'text-black/55'}`}>{plan.description}</p>
+                  <h3 className="display-tight text-[clamp(2.55rem,5vw,3.6rem)] font-medium">{plan.name}</h3>
+                  <p className={`mt-4 max-w-sm text-sm leading-6 ${plan.featured ? 'text-white/58' : 'text-black/58'}`}>{plan.description}</p>
                 </div>
 
                 <div className={`mt-8 border-y py-6 ${plan.featured ? 'border-white/15' : 'border-black/20'}`}>
                   <div className="flex items-end gap-2">
                     <span className={`pb-2 text-xs font-bold ${plan.featured ? 'text-white/45' : 'text-black/45'}`}>R$</span>
-                    <strong className="display-tight text-7xl font-medium leading-none sm:text-8xl">{plan.price}</strong>
+                    <strong className="display-tight text-7xl font-medium sm:text-8xl">{plan.price}</strong>
                     <span className={`pb-2 text-xs font-semibold ${plan.featured ? 'text-white/45' : 'text-black/45'}`}>/mês</span>
                   </div>
                 </div>
@@ -114,7 +112,7 @@ export function Plans() {
                   ))}
                 </ul>
 
-                <Link href="#contato" className={`mt-auto flex items-center justify-between border-t pt-5 text-[11px] font-extrabold uppercase tracking-[0.14em] transition-colors ${plan.featured ? 'border-white/15 text-white hover:text-[#f05a28]' : 'border-black/20 text-black hover:text-[#c74418]'}`}>
+                <Link href="#contato" className={`group mt-10 flex items-center justify-between border-t pt-5 text-[11px] font-extrabold uppercase tracking-[0.14em] transition-colors ${plan.featured ? 'border-white/15 text-white hover:text-[#f05a28]' : 'border-black/20 text-black hover:text-[#c74418]'}`}>
                   Quero este plano
                   <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
                 </Link>
@@ -122,6 +120,10 @@ export function Plans() {
             </Reveal>
           ))}
         </div>
+
+        <p className="mt-5 text-xs leading-5 text-black/45">
+          Valores e condições apresentados neste projeto são demonstrativos e podem ser adaptados para a academia contratante.
+        </p>
       </div>
     </section>
   )
