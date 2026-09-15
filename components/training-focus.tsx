@@ -117,7 +117,7 @@ export function TrainingFocus() {
                       <span className="text-[#f05a28]">{active.index}</span>
                       <span>{active.label}</span>
                     </div>
-                    <h3 className="display-tight mt-4 text-[clamp(3.2rem,8vw,6.8rem)] font-medium text-white">
+                    <h3 className="display-tight mt-4 max-w-full pr-1 text-[clamp(2.55rem,11.2vw,6.8rem)] font-medium leading-[0.92] tracking-[-0.035em] text-white sm:text-[clamp(3.2rem,8vw,6.8rem)]">
                       {active.title}
                     </h3>
                     <p className="mt-4 max-w-xl text-sm leading-7 text-white/68 sm:text-base">
